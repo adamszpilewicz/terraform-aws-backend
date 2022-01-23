@@ -6,8 +6,7 @@ locals {
 
 resource "aws_iam_role" "iam_role" {
   name               = "${local.namespace}-tf-assume-role"
-  assume_role_policy = jsonencode(
-{
+  assume_role_policy = jsonencode({
 "Version": "2012-10-17",
 "Statement": [
   {
@@ -17,8 +16,7 @@ resource "aws_iam_role" "iam_role" {
     },
           "Effect": "Allow"
         }
-] }
-)
+]})
   tags = {
     ResourceGroup = local.namespace
   }
